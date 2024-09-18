@@ -1,0 +1,527 @@
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Michroma", sans-serif;
+  background-color: #000000;
+  color: white;
+  line-height: 1.6;
+}
+
+.star {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(0, 13, 255);
+  clip-path: polygon(
+      50% 0%, 
+      61% 35%, 
+      98% 35%, 
+      68% 57%, 
+      79% 91%, 
+      50% 70%, 
+      21% 91%, 
+      32% 57%, 
+      2% 35%, 
+      39% 35%
+  );
+  pointer-events: none;
+  animation: twinkle 1s ease-out forwards;
+}
+
+@keyframes twinkle {
+  from {
+      opacity: 1;
+      transform: scale(1);
+  }
+  to {
+      opacity: 0;
+      transform: scale(0.3);
+  }
+}
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  padding: 10px 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.logo {
+  font-size: 40px;
+  color: white;
+  font-family: "Wallpoet", sans-serif;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ff6347;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    height: 32vh;
+    width: 40%;
+    border-radius: 10px;
+    background-color: rgba(14, 13, 27, 0.7);    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .nav-links a {
+    margin: 15px 0;
+    color: white;
+    text-decoration: none;
+    font-size: 10px;
+  }
+
+  .nav-links.show {
+    transform: translateX(0);
+  }
+
+  .menu-icon {
+    display: block;
+  }
+}
+
+/* Added styling for demo purposes */
+.content {
+  margin-top: 100px;
+  padding: 20px;
+  height: 2000px;
+  background-color: #f4f4f4;
+}
+
+/* HOME */
+
+@media (min-width: 400px) {
+  .hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 150px;
+    background-image: url(./assets/earth.jpeg);
+    background-size: cover;
+    background-position: center;
+    color: white;
+
+    /* Adding animation */
+    animation: zoomInOut 5s infinite ease-in-out;
+  }
+
+  @keyframes zoomInOut {
+    0% {
+      background-size: 100%;
+    }
+    50% {
+      background-size: 110%; /* Zoom in */
+    }
+    100% {
+      background-size: 100%; /* Zoom out */
+    }
+  }
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 150px;
+  background-image: url(./assets/earth.jpeg);
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.hello h4 {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.hello h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.hello h2 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+h4,
+span {
+  opacity: 0; /* Set initial opacity to 0 for the animation */
+  transform: translateX(100%); /* Move elements offscreen to the right */
+}
+
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .nav {
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .hero {
+    justify-content: center;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* HOME */
+
+/* ABOUT */
+.about {
+  padding-left: 150px;
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding-left: 20px;
+    font-size: 10px;
+  }
+}
+/* ABOUT */
+
+/* SKILLS */
+
+/* Base styles for larger screens remain the same */
+.skills {
+  background-image: url(./assets/bg.png);
+  background-size: cover;
+  padding-left: 150px;
+  padding-top: 50px;
+  padding-right: 150px;
+}
+
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, auto);
+  gap: 10px;
+  list-style: none;
+  padding: 20px;
+  margin: 0 20px;
+  text-align: center;
+  background-color: rgba(14, 13, 27, 0.7);
+  height: 350px;
+  border-radius: 10px;
+}
+
+.skills-list li {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Responsive CSS for mobile screens only */
+@media (max-width: 480px) {
+  .skills {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 30px;
+    font-size: 10px;
+  }
+
+  .skills-list {
+    grid-template-columns: 1fr; /* Single column for mobile */
+    grid-template-rows: repeat(12, auto); /* Make rows auto-adjust */
+    gap: 8px;
+    padding: 10px;
+    margin-right: 20px;
+    height: auto;
+    width: 80%;
+  }
+
+  .skills-list li {
+    padding: 8px;
+    font-size: 14px; /* Smaller text for better fit on mobile */
+  }
+}
+
+/* EDUCATION */
+.education {
+  padding-left: 150px;
+  margin-top: 50px;
+}
+
+@media (max-width: 480px) {
+  .education {
+    font-size: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 30px;
+  }
+}
+/* EDUCATION */
+
+/* PROJECTS */
+.projects {
+  padding-left: 150px;
+  margin-top: 50px;
+}
+.projects h2 {
+  margin-bottom: 20px;
+}
+.project-container {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+.project-box {
+  text-align: center;
+  background-color: rgba(14, 13, 27, 0.7);
+  border-radius: 8px;
+  padding: 15px;
+  width: 25%;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.project-box p {
+  color: rgb(162, 161, 161);
+  text-decoration: none;
+}
+h5 {
+  margin-top: 0;
+}
+@media (max-width: 768px) {
+  .projects {
+    font-size: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .project-box {
+    width: 100%;
+    line-height: 2;
+    padding-left: 20px;
+  }
+}
+
+/* PROJECTS */
+
+/* CONTACT */
+
+@media (max-width: 768px) {
+  .contact h2 {
+    font-size: 14px;
+    display: flex;
+  }
+  .contact-box a {
+    font-size: 10px;
+  }
+  .contact-box {
+    display: block; /* Stack the boxes vertically */
+    width: 50%; /* Allow boxes to take full width */
+  }
+}
+.contact {
+  padding-left: 10%; /* Similar to padding-left but supports RTL languages */
+  margin-top: 50px;
+  background-image: url(./assets/bg.png);
+  background-size: cover;
+}
+
+.contact h2 {
+  margin-bottom: 20px;
+}
+
+.contact-box {
+  display: inline-block;
+  background-color: rgba(14, 13, 27, 0.7);
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 10px;
+  text-align: center;
+  font-size: 16px;
+  width: 80%;
+  box-sizing: border-box;
+}
+.contact-box a {
+  text-decoration: none;
+}
+
+.contact-box a:hover {
+  color: #007bff;
+}
+
+.contact div {
+  margin-top: 15px;
+}
+
+.contact div a {
+  color: #ffffff;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.contact div a:hover {
+  color: #007bff;
+}
+
+@media (min-width: 400px) {
+  #social {
+    margin-left: 250px;
+  }
+  .contact-box {
+    display: inline-block;
+    background-color: rgba(14, 13, 27, 0.7);
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 10px;
+    text-align: center;
+    font-size: 16px;
+    width: 40%;
+    box-sizing: border-box;
+  }
+}
+.contact-box i {
+  font-size: 30px;
+}
+
+form {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input,
+textarea {
+  width: 90%;
+  padding: 10px;
+  color: white;
+
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: rgba(14, 13, 27, 0.7);
+  cursor: text;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  cursor: text;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+}
+
+button {
+  padding: 10px 20px;
+  color: white;
+  background-color: rgba(14, 13, 27, 0.7);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 13%;
+  width: 200px;
+  height: 50px;
+}
+
+@media (min-width: 400px) {
+  button {
+    margin-left: 35%;
+  }
+}
+
+button:hover {
+  background-color: rgba(6, 6, 10, 0.7);
+}
+.notification {
+  position: fixed;
+  top: 100px;
+  right: -100%;
+  padding: 15px;
+  background-color: #28a745;
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: right 0.5s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.notification.active {
+  right: 20px;
+}
+hr {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 10px;
+}
+
+/* CONTACT */
+
+/* FOOTER */
+footer {
+  padding-top: 10px;
+  text-align: center;  
+}
+@media (max-width: 768px) {
+  footer{
+    font-size: 10px;
+  }
+}
+/* FOOTER */
