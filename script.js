@@ -48,13 +48,40 @@ function handleScroll() {
 // Listen for the scroll event
 window.addEventListener("scroll", handleScroll);
 
-// Toggle navigation links visibility on menu icon click
-const menuIcon = document.getElementById("menu-icon");
+// Toggle Navigation Links on Menu Icon Click
+const hamburgerIcon = document.getElementById("hamburger-icon");
+const crossIcon = document.getElementById("cross-icon");
 const navLinks = document.getElementById("nav-links");
 
-menuIcon.addEventListener("click", () => {
+hamburgerIcon.addEventListener("click", () => {
   navLinks.classList.toggle("show");
+  toggleMenuIcons();
 });
+
+crossIcon.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
+  toggleMenuIcons();
+});
+
+function toggleMenuIcons() {
+  if (navLinks.classList.contains("show")) {
+    hamburgerIcon.style.display = "none";
+    crossIcon.style.display = "block";
+  } else {
+    hamburgerIcon.style.display = "block";
+    crossIcon.style.display = "none";
+  }
+}
+
+// Close the navbar when clicking anywhere outside
+document.addEventListener("click", (e) => {
+  if (!hamburgerIcon.contains(e.target) && !crossIcon.contains(e.target) && !navLinks.contains(e.target)) {
+    navLinks.classList.remove("show");
+    hamburgerIcon.style.display = "block";
+    crossIcon.style.display = "none";
+  }
+});
+
 
 // GSAP Animations
 const tl = gsap.timeline();
