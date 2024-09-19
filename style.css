@@ -103,7 +103,7 @@ header {
     height: 32vh;
     width: 40%;
     border-radius: 10px;
-    background-color: rgba(14, 13, 27, 0.7);    
+    background-color: rgba(14, 13, 27, 0.7);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -125,8 +125,12 @@ header {
   .menu-icon {
     display: block;
   }
-}
 
+  #hamburger-icon, #cross-icon {
+    font-size: 30px;
+    cursor: pointer;
+  }
+}
 /* Added styling for demo purposes */
 .content {
   margin-top: 100px;
